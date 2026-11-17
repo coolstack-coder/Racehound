@@ -93,11 +93,12 @@
   // ---------------- coupon with a countdown ----------------
   setInterval(function () {
     var left = Math.max(0, Math.ceil((state.promo.endsAt - Date.now()) / 1000));
-    $('#promo-time').textContent = left ? '0:' + String(left).padStart(2, '0') : 'now. Expired';
+    if (left) $('#promo-time').textContent = '0:' + String(left).padStart(2, '0');
     if (!left && !state.promo.expired) {
       state.promo.expired = true;
       delete COUPONS[state.promo.code];
       $('#promo').classList.add('expired');
+      $('#promo').innerHTML = '<b>SAVE10</b> has expired';
     }
   }, 1000);
 
