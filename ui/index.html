@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Racehound</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand"><span class="mark"></span>racehound <small>deterministic simulation for web UIs</small></div>
+    <div class="controls">
+      <label>app <span id="app-name" class="pill"></span></label>
+      <div id="variants" class="seg" role="group" aria-label="Code version"></div>
+      <label>seed <input id="seed" type="number" value="1" min="1"></label>
+      <label>runs <input id="runs" type="number" value="300" min="1"></label>
+      <button id="hunt" class="go">Hunt</button>
+      <button id="stop" class="ghost" disabled>Stop</button>
+    </div>
+  </header>
+
+  <section class="stats">
+    <div><b id="s-runs">0</b><span>runs</span></div>
+    <div><b id="s-steps">0</b><span>steps simulated</span></div>
+    <div><b id="s-rate">0</b><span>runs / second</span></div>
+    <div><b id="s-virtual">0 s</b><span>virtual time simulated</span></div>
+    <div><b id="s-bugs">0</b><span>distinct bugs</span></div>
+  </section>
+
+  <main class="main">
+    <section class="stage">
+      <div class="frame">
+        <div class="frame-head">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span id="frame-title">loading</span>
+          <span id="clock" class="clock">t = 0.000 s</span>
+        </div>
+        <iframe id="app" title="App under test"></iframe>
+        <div id="caption" class="caption" hidden></div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="panel">
+        <h4>Virtual world <span id="world-sub" class="sub"></span></h4>
+        <div class="world">
+          <div><span>clock</span><b id="w-now">0 ms</b></div>
+          <div><span>timers armed</span><b id="w-timers">0</b></div>
+          <div><span>requests in flight</span><b id="w-flight">0</b></div>
+        </div>
+        <ul id="net" class="net"></ul>
+      </div>
+
+      <div class="panel grow">
+        <h4>Bugs <span id="status" class="sub">idle</span></h4>
+        <div id="bugs" class="bugs"><p class="hint">Press Hunt. Every run is one seed: clicks, typing, timers and network deliveries in a random but replayable order.</p></div>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
