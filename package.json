@@ -1,0 +1,17 @@
+{
+  "name": "racehound",
+  "version": "0.1.0",
+  "description": "Deterministic simulation testing for web UIs: fake time, timers, randomness and network inside the page, replay any bug from a seed, shrink it to the fewest steps.",
+  "type": "module",
+  "bin": { "racehound": "bin/racehound.mjs" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "ui": "node bin/racehound.mjs serve",
+    "hunt": "node bin/racehound.mjs hunt demo/pantry"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}
