@@ -1,0 +1,48 @@
+{
+  "runsPerVariant": 1000,
+  "stepsPerRun": 150,
+  "variants": {
+    "buggy": {
+      "hits": {
+        "cart matches the server": {
+          "runs": 242,
+          "firstSeed": 2
+        },
+        "results match the search box": {
+          "runs": 58,
+          "firstSeed": 7
+        },
+        "page shows NaN": {
+          "runs": 162,
+          "firstSeed": 10
+        }
+      },
+      "steps": 141875,
+      "virtualMs": 52526780,
+      "ms": 25313.600000023842,
+      "runsPerSec": 39.50445610261117,
+      "deterministic": "50/50"
+    },
+    "naive": {
+      "hits": {
+        "cart matches the server": {
+          "runs": 502,
+          "firstSeed": 1
+        }
+      },
+      "steps": 149760,
+      "virtualMs": 56179000,
+      "ms": 23992,
+      "runsPerSec": 41.68056018672891,
+      "deterministic": "50/50"
+    },
+    "fixed": {
+      "hits": {},
+      "steps": 149757,
+      "virtualMs": 55818000,
+      "ms": 26512.799999952316,
+      "runsPerSec": 37.71763072937594,
+      "deterministic": "50/50"
+    }
+  }
+}
